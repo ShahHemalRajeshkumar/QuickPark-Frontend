@@ -1,0 +1,93 @@
+
+.auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+  }
+  
+  
+  .auth-container {
+    width: 100%;
+    max-width: 350px;
+    padding: 25px;
+    background: #ffffff;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    text-align: center;
+  }
+  
+  
+  h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+  input {
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  input:focus {
+    border-color: #6a11cb;
+    outline: none;
+    box-shadow: 0px 0px 8px rgba(106, 17, 203, 0.2);
+  }
+  
+  
+  button {
+    padding: 12px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  button:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+  }
+  
+  
+  p {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  span {
+    color: #6a11cb;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+  
+  span:hover {
+    text-decoration: underline;
+    color: #2575fc;
+  }
+  
+  
+  @media (max-width: 400px) {
+    .auth-container {
+      max-width: 90%;
+    }
+  }
+  

@@ -1,0 +1,122 @@
+.view-booking-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100vw;
+    background: linear-gradient(to right, #4a90e2, #9024c7);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.view-booking-content {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+.view-booking-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.booking-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.booking-table thead {
+    background: linear-gradient(to right, #4a90e2, #9024c7);
+    color: white;
+}
+
+.booking-table th, 
+.booking-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.booking-image {
+    height: 100px;
+    width: 100px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.update-button {
+    background: linear-gradient(to right, #4a90e2, #9024c7);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.update-button:hover {
+    background: linear-gradient(to right, #3a78c2, #7918a1);
+    transform: scale(1.05);
+}
+
+.no-booking-message {
+    font-size: 18px;
+    font-weight: bold;
+    color: #666;
+    margin-top: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .view-booking-content {
+        padding: 20px;
+        max-width: 90%;
+    }
+
+    .booking-table th, 
+    .booking-table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .booking-image {
+        height: 80px;
+        width: 80px;
+    }
+
+    .update-button {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .view-booking-title {
+        font-size: 24px;
+    }
+
+    .booking-table th, 
+    .booking-table td {
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    .booking-image {
+        height: 60px;
+        width: 60px;
+    }
+
+    .update-button {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+}
