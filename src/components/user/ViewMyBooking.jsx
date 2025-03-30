@@ -49,7 +49,7 @@ export const ViewMyBooking = () => {
                   <td>{booking.startTime}</td>
                   <td>{booking.endTime}</td>
                   <td>
-                    <Link to={`/updateBooking/${booking._id}`} className="update-button">
+                    <Link to={`/user/updateBooking/${booking._id}`} className="update-button">
                       UPDATE
                     </Link>
                   </td>

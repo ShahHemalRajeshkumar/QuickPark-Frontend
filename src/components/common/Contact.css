@@ -1,0 +1,83 @@
+/* Container */
+.contact-container {
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(135deg, #0f4c75, #3282b8);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form Box */
+.contact-form-box {
+    width: 400px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Heading */
+.contact-heading {
+    color: #0f4c75;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Subtext */
+.contact-subtext {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Label */
+.contact-label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+/* Input Fields */
+.contact-input,
+.contact-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+/* Textarea */
+.contact-textarea {
+    resize: none;
+}
+
+/* Error Messages */
+.contact-error {
+    color: red;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+/* Submit Button */
+.contact-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #0f4c75;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.contact-button:hover {
+    background-color: #3282b8;
+}

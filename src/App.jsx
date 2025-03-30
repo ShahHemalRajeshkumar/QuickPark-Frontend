@@ -17,6 +17,10 @@ import { AddMyVehicle } from "./components/user/AddMyVehicle";
 import { BookMyVehicle } from "./components/user/BookMyVehicle";
 import { ViewMyBooking } from "./components/user/ViewMyBooking";
 import { ResetPassword } from "./components/common/ResetPassword";
+import {ForgotPassword}  from "./components/common/ForgotPassword";
+import { UpdateMyBooking } from "./components/user/UpdateMyBooking";
+import { Contact } from "./components/common/Contact";
+import { Home } from "./components/common/Home";
 
 function App() {
   axios.defaults.baseURL = "http://localhost:3000";
@@ -40,7 +44,10 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<LandingPage />} />
+        <Route path="forgotpassword" element={<ForgotPassword/>}></Route>
         <Route path="/resetpassword/:token" element={<ResetPassword/>}></Route>
+        <Route path="contact" element={<Contact/>}></Route>
+        <Route path="home" element={<Home/>}></Route>
         <Route element={<PrivateRoutes />}>
            
             <Route path="/user" element={<UserSidebar />}>
@@ -48,6 +55,7 @@ function App() {
               <Route path= "addvehicle" element={<AddMyVehicle/>}></Route>
               <Route path= "bookmyvehicle" element={<BookMyVehicle/>}></Route>
               <Route path="viewmybooking" element={<ViewMyBooking/>}></Route>
+              <Route path= "updateBooking/:id" element={<UpdateMyBooking/>}></Route>
             </Route>
             <Route path="/parkingowner" element={<ProviderSidebar />} />
                <Route path="/parkingowner/addparking" element={<AddParking />} />

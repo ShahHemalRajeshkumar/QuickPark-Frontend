@@ -92,7 +92,7 @@ export const Login = () => {
           </div>
           
           <div className="forgot-password">
-            <Link to="/forgot-password" className="forgot-password-link">Forgot Password?</Link>
+            <Link to="/forgotpassword" className="forgot-password-link">Forgot Password?</Link>
           </div>
 
           <div className="form-group">

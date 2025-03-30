@@ -1,0 +1,194 @@
+/* Ensure full width and height */
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: "Poppins", Arial, sans-serif;
+    background-color: #f4f7fc; /* Light blue-gray background */
+}
+
+/* Main container with background image */
+.home-container {
+    position: relative;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    background: url('/assets/img/ParkingBackground.jpg') no-repeat center center/cover;
+    background-size: cover;
+}
+
+/* Dark overlay for better readability */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* Section Styling */
+.hero, .features, .facilities, .cta {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.95); /* Slight transparency */
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s ease-in-out;
+}
+
+/* Add hover effect */
+.hero:hover, .features:hover, .facilities:hover, .cta:hover {
+    transform: scale(1.02);
+}
+
+/* Section Headings */
+.section-title {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    color: #002855; /* Dark Blue for better readability */
+}
+
+/* Features and Facilities Section */
+.features, .facilities {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Feature & Facility Cards */
+.card {
+    background: #ffffff;
+    border: 1px solid #d1e0ff; /* Soft blue border */
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;
+    max-width: 260px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: 0.3s ease-in-out;
+}
+
+/* Card Hover Effect */
+.card:hover {
+    background: #e0ebff;
+    transform: translateY(-5px);
+}
+
+/* CTA Section */
+.cta {
+    background: #007bff; /* Bright blue */
+    color: #fff;
+    text-align: center;
+    padding: 25px;
+    margin-top: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* CTA Button */
+.cta-button {
+    display: inline-block;
+    background: #fff;
+    color: #007bff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: 0.3s;
+    border: 2px solid #fff;
+}
+
+.cta-button:hover {
+    background: #0056b3;
+    color: #fff;
+    border: 2px solid #fff;
+    transform: scale(1.05);
+}
+
+/* ================== */
+/* Stylish Table CSS  */
+/* ================== */
+
+.table-container {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 1000px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow-x: auto;
+    margin-top: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Table Header */
+thead {
+    background: #0056b3; /* Dark blue */
+    color: #ffffff;
+    font-weight: bold;
+}
+
+th {
+    padding: 15px;
+    text-align: left;
+    font-size: 16px;
+}
+
+/* Table Rows */
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    font-size: 15px;
+}
+
+/* Alternate row colors */
+tbody tr:nth-child(even) {
+    background: #f2f5ff;
+}
+
+/* Hover Effect on Table Rows */
+tbody tr:hover {
+    background: #cce5ff;
+    transition: 0.3s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero, .features, .facilities, .cta {
+        width: 95%;
+        padding: 20px;
+    }
+    .card {
+        width: 80%;
+    }
+    th, td {
+        font-size: 14px;
+        padding: 10px;
+    }
+}

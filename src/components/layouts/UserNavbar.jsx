@@ -1,5 +1,6 @@
 import React from "react";
 import hamburgermenu from "../../assets/images/hamburgermenu.png";
+import { Link } from "react-router-dom";
 
 export const UserNavbar = ({ toggleSidebar }) => {
   return (
@@ -39,9 +40,9 @@ export const UserNavbar = ({ toggleSidebar }) => {
             </a>
           </li>
           <li className="nav-item d-none d-md-block">
-            <a href="#" className="nav-link" style={{ color: "black" }}>
-              Contact
-            </a>
+        <Link to="/contact" className="nav-link" style={{ color: "black" }}>
+         Contact Us
+         </Link>
           </li>
         </ul>
 
