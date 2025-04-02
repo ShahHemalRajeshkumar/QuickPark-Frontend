@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; 
 import "./Signup.css"; 
 
 export const Signup = () => {
@@ -17,26 +19,39 @@ export const Signup = () => {
 
   const submitHandler = async (data) => {
     try {
-      // Assign roleId based on selected role
       data.roleId = data.role === "User" 
         ? "67dae822f5afbc68f03c2d8f" 
         : "67dae8acf5afbc68f03c2d91";
 
       console.log("Submitted Data:", data); 
 
-      const res = await axios.post("/user", data);
+      const res = await axios.post("/user", data); 
       console.log("Server Response:", res.data); 
 
       if (res.status === 201) {
-        setMessage("User successfully registered!");
+        setTimeout(() => {
+          toast.success("Signup successful! Redirecting to login...", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            theme: "colored",
+          });
+        }, 500); 
+
         reset(); 
-        navigate("/Login"); 
+
+        setTimeout(() => {
+          navigate("/login"); 
+        }, 3000);
       } else {
-        setMessage("Signup failed. Please try again.");
+        toast.error("Signup failed. Please try again.");
       }
     } catch (error) {
       console.error("Error:", error); 
-      setMessage("Error: Unable to signup.");
+      toast.error("Error: Unable to signup.");
     }
   };
 
@@ -113,6 +128,8 @@ export const Signup = () => {
             <button type="submit" className="signup-btn">Sign Up</button>
           </div>
         </form>
+
+        <ToastContainer />
       </div>
     </div>
   );

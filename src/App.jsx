@@ -21,6 +21,10 @@ import {ForgotPassword}  from "./components/common/ForgotPassword";
 import { UpdateMyBooking } from "./components/user/UpdateMyBooking";
 import { Contact } from "./components/common/Contact";
 import { Home } from "./components/common/Home";
+import { SearchParking } from "./components/user/SearchParking";
+import { AddVehicle } from "./components/user/AddVehicle";
+import { FinalBooking } from "./components/user/FinalBooking";
+import { ViewBookedParking } from "./components/parkingprovider/ViewBookedParking";
 
 function App() {
   axios.defaults.baseURL = "http://localhost:3000";
@@ -56,11 +60,15 @@ function App() {
               <Route path= "bookmyvehicle" element={<BookMyVehicle/>}></Route>
               <Route path="viewmybooking" element={<ViewMyBooking/>}></Route>
               <Route path= "updateBooking/:id" element={<UpdateMyBooking/>}></Route>
+              <Route path="searchparking" element={<SearchParking/>}></Route>
+              <Route path="addvehicle/:parkingId" element={<AddVehicle/>}></Route>
+              <Route path="finalbooking/:parkingId" element={<FinalBooking/>}></Route>
             </Route>
             <Route path="/parkingowner" element={<ProviderSidebar />} />
                <Route path="/parkingowner/addparking" element={<AddParking />} />
                <Route path="/parkingowner/myparking" element={<ViewMyParking />} />
               <Route path="/updateParking/:id" element={<UpdateMyParking />} />
+              <Route path="/parkingowner/viewbookedparking" element={<ViewBookedParking/>}></Route>
         </Route>
       </Routes>
     </div>

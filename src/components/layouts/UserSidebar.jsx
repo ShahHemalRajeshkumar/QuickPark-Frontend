@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { UserNavbar } from "./UserNavbar";
 import { Link, Outlet } from "react-router-dom";
+import { FaSearch, FaEye } from "react-icons/fa";
 
 export const UserSidebar = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
@@ -21,7 +22,7 @@ export const UserSidebar = () => {
         <div className="sidebar-brand">
           <a href="./index.html" className="brand-link">
             <img
-              src="../../dist/assets/img/AdminLTELogo.png"
+              src="/assets/img/logoparking.jpg"
               // alt="AdminLTE Logo"
               className="brand-image opacity-75 shadow"
             />
@@ -53,66 +54,33 @@ export const UserSidebar = () => {
               data-accordion="false"
             >
                <li className="nav-item menu-open">
-                <Link to ="addvehicle" className="nav-link active">
+                {/* <Link to ="addvehicle" className="nav-link active">
                   <i className="nav-icon bi bi-speedometer" />
                   <p>
                     Add My Vehicle
                     <i className="nav-arrow bi bi-chevron-right" />
                   </p>
-                </Link>
+                </Link> */}
                 <ul className="nav nav-treeview">
-                  <li className="nav-item">
+                  {/* <li className="nav-item">
                     <Link to="bookmyvehicle" className="nav-link active">
                       <i className="nav-icon bi bi-circle" />
                       <p> Book My Vehicle </p>
+                    </Link>
+                  </li> */}
+                  <li className="nav-item">
+                  <Link to="searchparking" className="nav-link active">
+                      <i className="nav-icon bi bi-circle" />
+                      <FaSearch size={16} /> 
+                      <p> Search My Parking </p>
                     </Link>
                   </li>
                   <li className="nav-item">
                   <Link to="viewmybooking" className="nav-link active">
                       <i className="nav-icon bi bi-circle" />
+                      <FaEye size={16} /> 
                       <p> View My Booking </p>
                     </Link>
-                  </li>
-                  <li className="nav-item">
-                    <a href="./index3.html" className="nav-link">
-                      <i className="nav-icon bi bi-circle" />
-                      <p> My Account</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li className="nav-item">
-                <a href="./generate/theme.html" className="nav-link">
-                  <i className="nav-icon bi bi-palette" />
-                  <p>Theme Generate</p>
-                </a>
-              </li>
-              <li className="nav-item">
-                <a href="#" className="nav-link">
-                  <i className="nav-icon bi bi-box-seam-fill" />
-                  <p>
-                    Widgets
-                    <i className="nav-arrow bi bi-chevron-right" />
-                  </p>
-                </a>
-                <ul className="nav nav-treeview">
-                  <li className="nav-item">
-                    <a href="./widgets/small-box.html" className="nav-link">
-                      <i className="nav-icon bi bi-circle" />
-                      <p>Small Box</p>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a href="./widgets/info-box.html" className="nav-link">
-                      <i className="nav-icon bi bi-circle" />
-                      <p>info Box</p>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a href="./widgets/cards.html" className="nav-link">
-                      <i className="nav-icon bi bi-circle" />
-                      <p>Cards</p>
-                    </a>
                   </li>
                 </ul>
               </li>

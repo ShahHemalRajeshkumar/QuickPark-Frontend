@@ -56,7 +56,7 @@ export const ProviderSidebar = () => {
               </li>
 
               <li className="nav-item">
-                <Link to="/parkingprovider/bookedparking" className="nav-link">
+                <Link to="viewbookedparking" className="nav-link">
                   <i className="nav-icon bi bi-calendar-check"></i>
                   <p>View Booked Parking</p>
                 </Link>

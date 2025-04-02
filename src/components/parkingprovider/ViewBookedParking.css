@@ -1,0 +1,50 @@
+.view-booked-container {
+  padding: 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.booked-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.booked-table th, .booked-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.booked-table th {
+  background-color: #004d99;
+  color: white;
+  text-transform: uppercase;
+}
+
+.booked-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.booked-table tr:hover {
+  background-color: #d1e7fd;
+  transition: 0.3s;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .booked-table th, .booked-table td {
+    padding: 8px;
+    font-size: 14px;
+  }
+}

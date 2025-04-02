@@ -1,46 +1,40 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import "./FinalBooking.css";
 
-export const UpdateMyBooking = () => {
-  const { register, handleSubmit, setValue } = useForm();
+export const FinalBooking = () => {
+  const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
-  const { id } = useParams();
-
-  useEffect(() => {
-    fetchBookingData();
-  }, [id]);
-
-  const fetchBookingData = async () => {
-    try {
-      const res = await axios.get(`/reservation/getReservationById/${id}`);
-      const data = res.data.data;
-      Object.keys(data).forEach((key) => setValue(key, data[key]));
-    } catch (error) {
-      console.error("Error fetching booking data:", error);
-      alert("Failed to fetch booking details.");
-    }
-  };
+  const { parkingId } = useParams();
 
   const submitHandler = async (data) => {
     data.userId = localStorage.getItem("id");
+    data.parkingId = parkingId;
+    data.vehicleId = localStorage.getItem("vehicleId"); 
+
+    if (!data.vehicleId) {
+      alert("Vehicle ID is missing! Please add a vehicle first.");
+      return;
+    }
 
     try {
-      const response = await axios.put(`/reservation/updateBooking/${id}`, data);
-      console.log("Booking Updated:", response.data);
-      alert("Booking Updated Successfully!");
-      navigate("/user/viewmybooking");
+      const response = await axios.post("http://localhost:3000/reservation/addreservation", data);
+      console.log("Booking Response:", response.data);
+      localStorage.setItem("reservationDetails", JSON.stringify(response.data));
+
+      alert("Booking Successful!");
+      navigate("/user/searchparking"); 
     } catch (error) {
-      console.error("Update error:", error.response?.data || error.message);
-      alert("Failed to update booking. Try again.");
+      console.error("Booking error:", error.response?.data || error.message);
+      alert("Booking failed. Try again.");
     }
   };
 
   return (
     <div className="booking-container">
-      <h1>Update Your Booking</h1>
+      <h1>Confirm Your Booking</h1>
       <form onSubmit={handleSubmit(submitHandler)} className="booking-form">
         <input type="date" {...register("date", { required: true })} />
         <input type="time" {...register("startTime", { required: true })} />
@@ -51,7 +45,7 @@ export const UpdateMyBooking = () => {
           <option value="Failed">Failed</option>
         </select>
         <input type="number" {...register("securityAmountPaid", { required: true })} placeholder="Advance Payment" />
-        <button type="submit">Update Booking</button>
+        <button type="submit">Book My Slot</button>
       </form>
     </div>
   );
