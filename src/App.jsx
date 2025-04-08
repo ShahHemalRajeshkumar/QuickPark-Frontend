@@ -25,6 +25,14 @@ import { SearchParking } from "./components/user/SearchParking";
 import { AddVehicle } from "./components/user/AddVehicle";
 import { FinalBooking } from "./components/user/FinalBooking";
 import { ViewBookedParking } from "./components/parkingprovider/ViewBookedParking";
+import { AgencySidebar } from "./components/layouts/AgencySidebar";
+import { AdminDashboard } from "./components/admin/AdminDashboard";
+import UsersDetail from "./components/admin/UsersDetail";
+import ViewAllBooking from "./components/admin/ViewAllBooking";
+import ViewAllParking from "./components/admin/ViewAllParking";
+import { AboutUs } from "./components/common/AboutUs";
+
+
 
 function App() {
   axios.defaults.baseURL = "http://localhost:3000";
@@ -47,13 +55,19 @@ function App() {
         
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/" element={<LandingPage />} />  
+        <Route path="aboutus" element={<AboutUs/>}></Route>
         <Route path="forgotpassword" element={<ForgotPassword/>}></Route>
         <Route path="/resetpassword/:token" element={<ResetPassword/>}></Route>
         <Route path="contact" element={<Contact/>}></Route>
         <Route path="home" element={<Home/>}></Route>
         <Route element={<PrivateRoutes />}>
-           
+           <Route path="/admin" element={<AgencySidebar/>}>
+           <Route path="admindeshboard" element={<AdminDashboard/>}></Route>
+           <Route path="userdetail" element={<UsersDetail/>}></Route>
+           <Route path="viewallbooking" element={<ViewAllBooking/>}></Route>
+           <Route path="viewallparking" element={<ViewAllParking/>}></Route>
+           </Route>
             <Route path="/user" element={<UserSidebar />}>
               <Route path="profile" element={<UserProfile />} />
               <Route path= "addvehicle" element={<AddMyVehicle/>}></Route>
@@ -64,11 +78,12 @@ function App() {
               <Route path="addvehicle/:parkingId" element={<AddVehicle/>}></Route>
               <Route path="finalbooking/:parkingId" element={<FinalBooking/>}></Route>
             </Route>
-            <Route path="/parkingowner" element={<ProviderSidebar />} />
+            <Route path="/parkingowner" element={<ProviderSidebar />}/>
                <Route path="/parkingowner/addparking" element={<AddParking />} />
                <Route path="/parkingowner/myparking" element={<ViewMyParking />} />
               <Route path="/updateParking/:id" element={<UpdateMyParking />} />
               <Route path="/parkingowner/viewbookedparking" element={<ViewBookedParking/>}></Route>
+             
         </Route>
       </Routes>
     </div>

@@ -62,7 +62,16 @@ input {
   background-color: #0056b3;
 }
 
-
+.Toastify {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  width: auto;
+  height: auto;
+  pointer-events: none;
+  background: none !important; 
+}
 @media (max-width: 480px) {
   .login-form-container {
       width: 90%;

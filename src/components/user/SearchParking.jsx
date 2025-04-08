@@ -8,6 +8,8 @@ export const SearchParking = () => {
   const [cities, setCities] = useState([]);
   const [areas, setAreas] = useState([]);
   const [parkings, setParkings] = useState([]);
+  const [defaultParkings, setDefaultParkings] = useState([]);
+
   const [selectedState, setSelectedState] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
   const [selectedArea, setSelectedArea] = useState("");
@@ -16,28 +18,60 @@ export const SearchParking = () => {
 
   useEffect(() => {
     getAllStates();
+    getDefaultParkings(); 
   }, []);
 
   const getAllStates = async () => {
-    const res = await axios.get("/state/getallstates");
-    setStates(res.data.data);
+    try {
+      const res = await axios.get("/state/getallstates");
+      setStates(res.data.data);
+    } catch (error) {
+      console.error("Error fetching states", error);
+    }
+  };
+
+  const getDefaultParkings = async () => {
+    try {
+      const res = await axios.get("/parking/defaultparking"); 
+      setDefaultParkings(res.data.data);
+    } catch (error) {
+      console.error("Error fetching default parkings", error);
+    }
   };
 
   const getCityByStateId = async (id) => {
     setSelectedState(id);
-    const res = await axios.get(`/city/getcitybystate/${id}`);
-    setCities(res.data.data);
+    setSelectedCity("");
+    setSelectedArea("");
+    setCities([]);
+    setAreas([]);
+    try {
+      const res = await axios.get(`/city/getcitybystate/${id}`);
+      setCities(res.data.data);
+    } catch (error) {
+      console.error("Error fetching cities", error);
+    }
   };
 
   const getAreaByCityId = async (id) => {
     setSelectedCity(id);
-    const res = await axios.get(`/area/getareabycity/${id}`);
-    setAreas(res.data.data);
+    setSelectedArea("");
+    setAreas([]);
+    try {
+      const res = await axios.get(`/area/getareabycity/${id}`);
+      setAreas(res.data.data);
+    } catch (error) {
+      console.error("Error fetching areas", error);
+    }
   };
 
   const searchParkings = async () => {
-    const res = await axios.get(`/parking/getparkingbyarea/${selectedArea}`);
-    setParkings(res.data.data);
+    try {
+      const res = await axios.get(`/parking/getparkingbyarea/${selectedArea}`);
+      setParkings(res.data.data); 
+    } catch (error) {
+      console.error("Error fetching parkings", error);
+    }
   };
 
   return (
@@ -68,21 +102,47 @@ export const SearchParking = () => {
         <button onClick={searchParkings} disabled={!selectedArea}>Search</button>
       </div>
 
-      <div className="parking-grid">
-        {parkings.map((parking) => (
-          <div key={parking._id} className="parking-card">
-            <img src="/assets/img/imageofparking.jpeg" alt="Parking" />
-            <h3>{parking.parkingname}</h3>
-            <p>{parking.description}</p>
-            <p><strong>Total Spaces:</strong> {parking.totalSpaces}</p>
-            <p><strong>Available Slots:</strong> {parking.availableSpaces}</p>
-            <p><strong>Hourly Rate:</strong> ₹{parking.hourlyRate}</p>
-            <button onClick={() => navigate(`/user/addvehicle/${parking._id}`)}>
-              Book My Parking
-            </button>
+  
+      {parkings.length > 0 ? (
+        <div>
+          <h2>Search Results</h2>
+          <div className="parking-grid">
+            {parkings.map((parking) => (
+              <div key={parking._id} className="parking-card">
+                <img src="/assets/img/imageofparking.jpeg" alt="Parking" />
+                <h3>{parking.parkingname}</h3>
+                <p>{parking.description}</p>
+                <p><strong>Total Spaces:</strong> {parking.totalSpaces}</p>
+                <p><strong>Available Slots:</strong> {parking.availableSpaces}</p>
+                <p><strong>Hourly Rate:</strong> ₹{parking.hourlyRate}</p>
+                <button onClick={() => navigate(`/user/addvehicle/${parking._id}`)}>
+                  Book My Parking
+                </button>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      ) : (
+        
+        <div>
+          <h2>Recommended Parking Slots</h2>
+          <div className="parking-grid">
+            {defaultParkings.map((parking) => (
+              <div key={parking._id} className="parking-card">
+                <img src="/assets/img/imageofparking.jpeg" alt="Parking" />
+                <h3>{parking.parkingname}</h3>
+                <p>{parking.description}</p>
+                <p><strong>Total Spaces:</strong> {parking.totalSpaces}</p>
+                <p><strong>Available Slots:</strong> {parking.availableSpaces}</p>
+                <p><strong>Hourly Rate:</strong> ₹{parking.hourlyRate}</p>
+                <button onClick={() => navigate(`/user/addvehicle/${parking._id}`)}>
+                  Book My Parking
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

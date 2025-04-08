@@ -15,7 +15,6 @@ export const Login = () => {
     try {
       console.log("Login Data:", data);
       
-      // Assign roleId based on selected role
       data.roleId = data.role === "User" 
         ? "67dae822f5afbc68f03c2d8f" 
         : "67dae8acf5afbc68f03c2d91";
@@ -24,9 +23,14 @@ export const Login = () => {
       console.log("Server Response:", res.data);
 
       if (res.status === 200) {
-        localStorage.setItem("id", res.data.data._id);
-        localStorage.setItem("role", res.data.data.roleId.name); // Store role name instead of ID
+        let roleName = res.data.data.roleId.name;
+
       
+       roleName = roleName.toUpperCase() === "ADMIN" ? "ADMIN" : roleName;
+        localStorage.setItem("id", res.data.data._id);
+        localStorage.setItem("role", res.data.data.roleId.name);
+      
+
         toast.success("Login successful!", {
           position: "top-right",
           autoClose: 3000,
@@ -39,11 +43,14 @@ export const Login = () => {
       
         setTimeout(() => {
           if (res.data.data.roleId.name === "User") {
-            navigate("/user"); // Show User Sidebar
+            navigate("/user"); 
           } else if (res.data.data.roleId.name === "Parking Provider") {
-            navigate("/parkingowner"); // Show Parking Provider Sidebar
-          } else {
-            navigate("/"); // Default redirect if role is unknown
+            navigate("/parkingowner"); 
+          }else if (res.data.data.roleId.name === "ADMIN") {
+            navigate("/admin"); 
+          }
+           else {
+            navigate("/"); 
           }
         }, 3000);
       }

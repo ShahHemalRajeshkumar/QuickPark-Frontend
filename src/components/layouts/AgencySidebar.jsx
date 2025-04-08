@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-
 import { Link, Outlet } from "react-router-dom";
+import { FaEye } from "react-icons/fa";
+import { MdSpaceDashboard } from "react-icons/md";
 import { AgencyNavbar } from "./AgencyNavbar";
 
 export const AgencySidebar = () => {
-  //for closing sidebar...
   const [isSidebarOpen, setSidebarOpen] = useState(true);
 
   const toggleSidebar = () => {
@@ -20,16 +20,19 @@ export const AgencySidebar = () => {
           isSidebarOpen ? "open" : "d-none"
         }`}
         data-bs-theme="dark"
+        style={{
+          zIndex: 1050, 
+          
+        }}
       >
         <div className="sidebar-brand">
           <a href="./index.html" className="brand-link">
             <img
-              src="../../dist/assets/img/AdminLTELogo.png"
-              // alt="AdminLTE Logo"
+              src="/assets/img/logoparking.jpg"
               className="brand-image opacity-75 shadow"
+              alt="Logo"
             />
-
-            <span className="brand-text fw-light">AdminLTE 4</span>
+            <span className="brand-text fw-light"> Admin Dashboard</span>
           </a>
         </div>
 
@@ -49,59 +52,36 @@ export const AgencySidebar = () => {
           }}
         >
           <nav className="mt-2">
-            <ul
-              className="nav sidebar-menu flex-column"
-              data-lte-toggle="treeview"
-              role="menu"
-              data-accordion="false"
-            >
+            <ul className="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
               <li className="nav-item menu-open">
-                <Link to="addscreen" className="nav-link active">
-                  <i className="nav-icon bi bi-speedometer" />
-                  <p>
-                    ADD SCREEN
-                    <i className="nav-arrow bi bi-chevron-right" />
-                  </p>
-                </Link>
                 <ul className="nav nav-treeview">
                   <li className="nav-item">
-                    <Link to="addscreen" className="nav-link active">
-                      <i className="nav-icon bi bi-speedometer" />
-                      <p>
-                        VIEW MY SCREENS
-                        <i className="nav-arrow bi bi-chevron-right" />
-                      </p>
+                    <Link to="admindeshboard" className="nav-link active">
+                      <i className="nav-icon bi bi-circle" />
+                      <MdSpaceDashboard size={16} />
+                      <p> Dashboard </p>
                     </Link>
                   </li>
-                </ul>
-              </li>
-              
-              <li className="nav-item">
-                <a href="#" className="nav-link">
-                  <i className="nav-icon bi bi-box-seam-fill" />
-                  <p>
-                    Widgets
-                    <i className="nav-arrow bi bi-chevron-right" />
-                  </p>
-                </a>
-                <ul className="nav nav-treeview">
                   <li className="nav-item">
-                    <a href="./widgets/small-box.html" className="nav-link">
+                    <Link to="userdetail" className="nav-link active">
                       <i className="nav-icon bi bi-circle" />
-                      <p>Small Box</p>
-                    </a>
+                      <FaEye size={16} />
+                      <p> View Users Detail </p>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a href="./widgets/info-box.html" className="nav-link">
+                    <Link to="viewallbooking" className="nav-link active">
                       <i className="nav-icon bi bi-circle" />
-                      <p>info Box</p>
-                    </a>
+                      <FaEye size={16} />
+                      <p> View All Booking </p>
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a href="./widgets/cards.html" className="nav-link">
+                    <Link to="viewallparking" className="nav-link active">
                       <i className="nav-icon bi bi-circle" />
-                      <p>Cards</p>
-                    </a>
+                      <FaEye size={16} />
+                      <p> View All Parking </p>
+                    </Link>
                   </li>
                 </ul>
               </li>
@@ -109,7 +89,7 @@ export const AgencySidebar = () => {
           </nav>
         </div>
       </aside>
-      <main class="app-main">
+      <main className="app-main">
         <Outlet></Outlet>
       </main>
     </>

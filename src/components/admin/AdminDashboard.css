@@ -1,0 +1,62 @@
+.admin-dashboard {
+    padding: 20px;
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: flex-start; 
+    min-height: 100vh; 
+    margin-top: 80px; 
+    background-color: #eaeaea;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.stats-container {
+    display: flex;
+    gap: 15px;  
+    justify-content: center; 
+    flex-wrap: wrap; 
+    max-width: 900px; 
+    margin-top: 20px; 
+}
+
+.stat-box {
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 220px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.stat-box:hover {
+    transform: scale(1.05);
+}
+
+.stat-box:nth-child(1) { background: #3498db; } 
+.stat-box:nth-child(2) { background: #2ecc71; } 
+.stat-box:nth-child(3) { background: #e74c3c; } 
+
+.chart-container {
+    margin-top: 40px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    width: 100%;
+}
+
+.chart-container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #111827;
+}
+
+.chart-container canvas {
+    width: 100% !important;
+    height: 400px !important;
+}

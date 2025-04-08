@@ -1,74 +1,83 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { FaHome, FaEnvelope } from "react-icons/fa";
+import { FiLogOut } from "react-icons/fi";
 import hamburgermenu from "../../assets/images/hamburgermenu.png";
 
 export const AgencyNavbar = ({ toggleSidebar }) => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("agencyId");
+    localStorage.removeItem("role");
+    navigate("/login");
+  };
+
   return (
-    <nav className="app-header navbar navbar-expand bg-body">
-      {/*begin::Container*/}
-      <div className="container-fluid">
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <a
-              className="nav-link btn btn-light"
-              href="#"
-              role="button"
-              style={{
-                color: "black",
-                padding: "5px 10px",
-                border: "1px solid #ccc",
-                borderRadius: "5px",
-              }}
-              onClick={toggleSidebar}
-            >
-              <img src={hamburgermenu} style={{height:"25px",width:"25px"}}></img>
-            </a>
-          </li>
-          <li className="nav-item d-none d-md-block">
-            <a href="#" className="nav-link">
-              Home
-            </a>
-          </li>
-          <li className="nav-item d-none d-md-block">
-            <a href="#" className="nav-link">
-              Contact
-            </a>
-          </li>
-        </ul>
-
-        <ul className="navbar-nav ms-auto">
-          <li className="nav-item">
-            <a
-              className="nav-link"
-              data-widget="navbar-search"
-              href="#"
-              role="button"
-            >
-              <i className="bi bi-search" />
-            </a>
-          </li>
-
-         
-
-        
-
-          <li className="nav-item">
-            <button className="btn btn-danger">LOGOUT</button>
-            {/* <a className="nav-link" href="#" data-lte-toggle="fullscreen">
-              <i data-lte-icon="maximize" className="bi bi-arrows-fullscreen" />
-              <i
-                data-lte-icon="minimize"
-                className="bi bi-fullscreen-exit"
-                style={{ display: "none" }}
-              />
-            </a> */}
-            
-            
-
-          </li>
-
-          
-        </ul>
-      </div>
-    </nav>
+    <>
+      <nav
+        className="app-header navbar navbar-expand"
+        style={{
+          background: "#343a40",
+          color: "#007bff",
+          zIndex: 1060,
+          position: "fixed",
+          width: "100%",
+          top: 0,
+          boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+        }}
+      >
+        <div className="container-fluid">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <button
+                className="nav-link btn"
+                style={{
+                  color: "#007bff",
+                  padding: "5px 10px",
+                  border: "1px solid #444",
+                  borderRadius: "5px",
+                  background: "#343a40",
+                }}
+                onClick={toggleSidebar}
+              >
+                <img src={hamburgermenu} style={{ height: "25px", width: "25px" }} alt="Menu" />
+              </button>
+            </li>
+            <li className="nav-item d-none d-md-block">
+              <Link to="/home" className="nav-link" style={{ color: "#007bff" }}>
+                <FaHome size={17} /> Home
+              </Link>
+            </li>
+            <li className="nav-item d-none d-md-block">
+              <Link to="/contact" className="nav-link" style={{ color: "#007bff" }}>
+                <FaEnvelope size={17} /> Contact Us
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      
+      <button
+        className="btn btn-danger logout-btn"
+        style={{
+          backgroundColor: "#dc3545",
+          color: "white",
+          position: "fixed",
+          top: "8px",
+          right: "25px",
+          zIndex: 9999,
+          display: "flex",
+          alignItems: "center",
+          gap: "8px",
+          padding: "8px 15px",
+          fontSize: "16px",
+          borderRadius: "5px",
+        }}
+        onClick={handleLogout}
+      >
+        <FiLogOut size={20} /> LogOut
+      </button>
+    </>
   );
 };

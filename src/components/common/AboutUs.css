@@ -1,0 +1,81 @@
+.aboutus-container {
+    padding: 60px 10%;
+    color: #fff;
+    background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(4px);
+  }
+  
+  section {
+    margin-bottom: 50px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  }
+  
+  .intro h1, .mission h2, .values h2, .team h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #00f5d4;
+  }
+  
+  .intro p, .mission p, .team p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  .value-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  
+  .card {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+    flex: 1;
+    min-width: 250px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #fff;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  }
+  
+  .card-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    object-fit: cover;
+  }
+  
+  .card h3 {
+    color: #00f5d4;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .card p {
+    font-size: 1rem;
+    color: #e0f7fa;
+  }
+  
+  .team-img {
+    margin-top: 20px;
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 3px solid #00f5d4;
+  }
+  
